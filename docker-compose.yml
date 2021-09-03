@@ -1,0 +1,20 @@
+version: '3.5'
+
+services:
+    Jenkins:
+        image: jenkins/jenkins:lts-jdk11
+        container_name: jenkins
+        restart: unless-stopped #redémmarre automatiquement s'il plante sauf si l'admin l'a arreté
+        # networks:
+        #     - n1
+        ports: 
+            - 50000:50000
+            - 8081:8080
+        volumes:
+            - ./var/jenkins:/var/jenkins_home
+    
+
+# networks:
+#     n1: 
+#         name: 'n1'
+
